@@ -1,0 +1,192 @@
+@font-face {
+	font-family: 'NoirPro-BoldItalic'; 
+	src: url('../css/fonts/NoirPro-SemiBoldItalic.woff2'); 
+}
+
+@font-face {
+	font-family: 'NoirPro-Light'; 
+	src: url('../css/fonts/NoirProLight.woff'); 
+}
+
+
+body {
+    margin: 0;
+    width: 1920px;
+    height: 1080px;
+    font-family: 'NoirPro-BoldItalic';    
+
+    header {
+        max-width: 1920px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        border-bottom: solid;
+        border-width: 2px;
+        border-image: linear-gradient(100deg,   rgba(243, 106, 29, 0) 0%, #F36A1D, rgba(243, 106, 29, 0) 100%) 1;
+        padding-bottom: 20px;
+        z-index: 1111;
+        position: fixed;
+    
+        h1 {
+            margin: 0 0 0 64px;
+            font-size: 132px;
+            line-height: 155px;
+            letter-spacing: -0.05em;
+            text-transform: uppercase;
+            color: #393939;
+        }
+
+        img {
+            margin-right: 64px;
+        }
+    }
+
+    main {
+        display: flex;
+        max-width: 1920px;
+        width: 100%;
+        padding-top: 150px;
+        z-index: 111;   
+
+        .main_title {
+            width: 147px;
+            height: 200px;
+            color: #727272;
+            font-family: 'NoirPro-Light';
+            font-size: 20px;
+            line-height: 132.7%;
+            margin-left: 72px;
+        }
+
+        .main_navigation {
+            display: flex;
+            max-width: 1920px;
+            width: 100%;
+            margin-top: 350px;
+            height: 40px;
+            justify-content: space-between;
+            z-index: 111;
+
+            #main_arrow-right {
+                width: 151px;
+                margin-right: 64px;
+                background-image: url('../pic/arrow-normal-right.svg');
+                background-repeat: no-repeat;
+                align-items: flex-end;
+                z-index: 111;
+            }
+    
+            #main_arrow-right:hover {
+                background-image: url('../pic/arrow-hover.svg');
+                cursor: pointer;
+            }
+
+            
+    
+            #main_arrow-left {
+                width: 151px;
+                margin-left: -145px;
+                background-image: url('../pic/arrow-normal-left.svg');
+                background-repeat: no-repeat;
+                align-items: flex-start;
+            }
+
+            #main_arrow-left:hover {
+                background-image: url('../pic/arrow-hover.svg');
+                transform: rotate(180deg);
+                cursor: pointer;
+                margin-bottom: 10px;
+            }
+        }
+        
+    }
+
+    footer {
+        max-width: 1920px;
+        width: 100%;
+        // position: fixed;
+        // left: 0;
+        // bottom: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 0 0 27px 0;
+        z-index: 111;
+        position: fixed;
+        bottom: 0;
+    }
+
+    .footer_like {
+        margin-left: 50.11%;
+
+        .footer_like-countContainer {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .footer_like-count {
+            margin: 0;
+            font-size: 32px;
+            line-height: 37px;
+            font-family: 'NoirPro-BoldItalic';
+            color: #727272;
+            letter-spacing: -0.05em;
+        }
+
+        .footer_like-counter {
+            margin: 0 0 0 5px;
+            font-size: 32px;
+            line-height: 37px;
+            font-family: 'NoirPro-BoldItalic';
+            color: #F36A1D;
+            letter-spacing: -0.05em;    
+        }
+    
+        .footer_like-btn {
+            background-color: transparent;
+            border: none;
+            margin-bottom: 13px;
+        }
+
+        .footer_like-btn-img {
+            background-image: url("../pic/like-normal.svg");
+        }
+
+        .footer_like-btn-img:hover {
+            background-image: url("../pic/like-normal-hover.svg");
+            cursor: pointer;
+        }
+    }
+
+    .footer_social {
+        display: flex;
+        flex-direction: row;
+        margin-right: 2.81%;
+
+        p {
+            margin: 70px 0 0 0 ;
+            align-self: center;
+        }
+
+        a {
+            height: 100%;
+            margin-bottom: 20px;
+        }
+
+    }
+
+    .swiper-wrapped {
+        height: 100%;
+    }
+
+    .swiper-slide {
+        margin: 0;
+        width: 1920px;
+        height: 1080px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        z-index: 11;
+    }
+
+}
