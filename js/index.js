@@ -18,7 +18,11 @@ $(document).ready(function () {
           headers: {"Content-type": "application/json"},
           success: function(response) {
               handler(response);
-              console.log(response);
+          },
+          error: function() {
+              $('#swiper-slide').css('background', '#CFCFCF').css('backvround-image', 'url(../pic/err.svg)');
+              let errPic = $('img').css('background-image', 'ulr(../pic/ERROR.svg)')
+              $('#swiper-slide').append(errPic);
           }
       });
     }
@@ -26,7 +30,7 @@ $(document).ready(function () {
     function displayTasks(dataFromServer) {
       $(dataFromServer).each(function (i) {
           let item = dataFromServer[i];
-          let slide = $('<div></div>').addClass('swiper-slide').attr('id', item.id).css('background-image', 'url(' + item.imgUrl + ')').attr('data-likeCnt', item.likeCnt);
+          let slide = $('<div></div>').addClass('swiper-slide').attr('id', item.id).css('background-image', 'url(' + item.imgUrl + ')').attr('data-likeCnt', item.likeCnt).attr('data-desc', item.desc);
           swiper.appendSlide(slide);
           if($('.swiper-slide-active')[0].id == item.id) {
             $('.footer_like-countContainer').append(likeCounter)
@@ -46,19 +50,25 @@ $(document).ready(function () {
   });
 
   $('#footer_like-btn').click(function() {
+    $('#popup_text').text($('.swiper-slide-active').attr('data-desc'))
+    $('#popup_text').text()
     const id = $('.swiper-slide-active').attr('id');
     let likeNumber = $('.swiper-slide-active').attr(('data-likeCnt'));
     let likeCnt = (++likeNumber);
     console.log(likeCnt);
-    let like = {
-      id: id,
-      likeCnt: likeCnt
-    }
-    ajaxRequest(likeUrl(id), 'POST', like, ololo);
+    ajaxRequest(likeUrl(id), 'POST', null, addPopupTitle);
+    $('#popup').show()
+    $('.swiper-slide-active').css('opacity', 0.5)
   })
 
-  function ololo(response) {
-    console.log(response.title);
+  $('#popup_close, .swiper-wrapper, .header').click(function() {
+    $('#popup').hide();
+    $('.swiper-slide-active').css('opacity', 1)
+  })
+
+  function addPopupTitle(response) {
+    $('#popup_tnx').text(response.title);
+    $('#popup_desc').text(response.desc)
   }
   
   function getSlides(response) {

@@ -195,3 +195,23 @@ body {
     }
 
 }
+
+.popup {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 30%;
+    left: 38%;
+    margin: 0 auto;
+    display: none;
+    width: 543px;
+    height: 470px;
+    background: #393939;
+    z-index: 222222;
+    
+    .popup_header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
