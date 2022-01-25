@@ -16,8 +16,10 @@ html {
 }
 body {
     margin: 0;
-    width: 1920px;
-    height: 1080px;
+    max-width: 1920px;
+    max-height: 1080px;
+    width: 100%;
+    height: 100%;
     font-family: 'NoirPro-BoldItalic';    
 
     header {
@@ -110,9 +112,6 @@ body {
     footer {
         max-width: 1920px;
         width: 100%;
-        // position: fixed;
-        // left: 0;
-        // bottom: 0;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -252,5 +251,6 @@ body {
         height: 25px;
         border: 0;
         margin: 32px 32px 0 0;
+        cursor: pointer;
     }
 }

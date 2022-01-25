@@ -43,6 +43,7 @@ $(document).ready(function () {
     slidesPerView: 1,
     spaceBetween: 30,
     observe: true,
+    allowTouchMove: false,
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
