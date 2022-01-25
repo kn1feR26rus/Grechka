@@ -1,47 +1,64 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Grechka</title>
-    <link rel="stylesheet" type="text/css" href="../css/index.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="../js/index.js"></script>
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-</head>
-<body class="body">
+  </head>
+  <body class="body">
     <div class="swiper mySwiper">
-        <header class="header">
-            <h1 class="header_title" id='header_title'>The Razorite</h1>
-            <img src="../pic/header-logo.svg" alt="logo" class="header_logo">
-        </header>
-        <div class="swiper-wrapper" id="swiper-wrapper">
+      <header class="header">
+        <h1 class="header_title" id="header_title">The Razorite</h1>
+        <img src="../pic/header-logo.svg" alt="logo" class="header_logo" />
+      </header>
+      <div class="swiper-wrapper" id="swiper-wrapper"></div>
+      <div class="swiper-button-next" id="swiper-button-next"></div>
+      <div class="swiper-button-prev" id="swiper-button-prev"></div>
+      <footer class="footer">
+        <div class="footer_like">
+          <button class="footer_like-btn" id="footer_like-btn">
+            <img
+              src="../pic/like-normal.svg"
+              alt=""
+              class="footer_like-btn-img"
+              id="footer_like-btn-img"
+            />
+          </button>
+          <div class="footer_like-countContainer">
+            <p class="footer_like-count">like:</p>
+          </div>
         </div>
-            <div class="swiper-button-next" id="swiper-button-next"></div>
-            <div class="swiper-button-prev" id="swiper-button-prev"></div>
-        <footer class="footer">
-            <div class="footer_like">
-                <button class="footer_like-btn" id="footer_like-btn"><img src="../pic/like-normal.svg" alt="" class="footer_like-btn-img" id="footer_like-btn-img"></button>
-                <div class="footer_like-countContainer">
-                    <p class="footer_like-count">like: </p>
-                </div>
-            </div>
-            <div class="footer_social">
-                <p><a href="" class="footer_social-odnoklassniki"><img src="../pic/icon-odnoklass-normal.svg" alt="Одноклассники"></a>
-                <a href="" class="footer_social-vk"><img src="../pic/icon-vk-normal.svg" alt="ВКонтакт"></a>
-                <a href="" class="footer_social-facebook"><img src="../pic/icon-facebook-normal.svg" alt="Facebook"></a></p>
-            </div>
-        </footer>
-        <templater class="popup" id="popup">
-            <div class="popup_header">
-                <h1 class="popup_title">BMW i8</h1>
-                <button class="popup_close" id="popup_close"></button>
-            </div>
-            <p class="popup_tnx popup_data" id="popup_tnx"></p>
-            <p class="popup_desc popup_data" id="popup_desc"></p>
-            <p class="popup_text" id="popup_text"></p>
-        </templater>
+        <div class="footer_social">
+          <p>
+            <a href="" class="footer_social-odnoklassniki"
+              ><img src="../pic/icon-odnoklass-normal.svg" alt="Одноклассники"
+            /></a>
+            <a href="" class="footer_social-vk"
+              ><img src="../pic/icon-vk-normal.svg" alt="ВКонтакт"
+            /></a>
+            <a href="" class="footer_social-facebook"
+              ><img src="../pic/icon-facebook-normal.svg" alt="Facebook"
+            /></a>
+          </p>
+        </div>
+      </footer>
+      <templater class="popup" id="popup">
+        <div class="popup_header">
+          <h1 class="popup_title">BMW i8</h1>
+          <button class="popup_close" id="popup_close"></button>
+        </div>
+        <p class="popup_tnx popup_data" id="popup_tnx"></p>
+        <p class="popup_desc popup_data" id="popup_desc"></p>
+        <p class="popup_text" id="popup_text"></p>
+      </templater>
     </div>
-</body>
+  </body>
 </html>
