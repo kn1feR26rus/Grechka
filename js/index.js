@@ -6,7 +6,7 @@ $(document).ready(function () {
   }
 
   function likeUrl (id) {
-    return 'https://private-anon-86a2375402-grchhtml.apiary-mock.com/slides/' + id +'/like'
+    return 'https://private-anon-86a2375402-grchhtml.apiary-mock.com/slides/' + id +'/like';
   }
 
   function ajaxRequest(url, method, data, handler = function() {}) {
@@ -21,7 +21,7 @@ $(document).ready(function () {
           },
           error: function() {
               $('#swiper-slide').css('background', '#CFCFCF').css('backvround-image', 'url(../pic/err.svg)');
-              let errPic = $('img').css('background-image', 'ulr(../pic/ERROR.svg)')
+              let errPic = $('img').css('background-image', 'ulr(../pic/ERROR.svg)');
               $('#swiper-slide').append(errPic);
           }
       });
@@ -33,7 +33,7 @@ $(document).ready(function () {
           let slide = $('<div></div>').addClass('swiper-slide').attr('id', item.id).css('background-image', 'url(' + item.imgUrl + ')').attr('data-likeCnt', item.likeCnt).attr('data-desc', item.desc);
           swiper.appendSlide(slide);
           if($('.swiper-slide-active')[0].id == item.id) {
-            $('.footer_like-countContainer').append(likeCounter)
+            $('.footer_like-countContainer').append(likeCounter);
             $(likeCounter).text(item.likeCnt);
           }
       });
@@ -50,35 +50,45 @@ $(document).ready(function () {
   });
 
   $('#footer_like-btn').click(function() {
-    $('#popup_text').text($('.swiper-slide-active').attr('data-desc'))
-    $('#popup_text').text()
     const id = $('.swiper-slide-active').attr('id');
-    let likeNumber = $('.swiper-slide-active').attr(('data-likeCnt'));
-    let likeCnt = (++likeNumber);
-    console.log(likeCnt);
+
+    $('#popup_text').text($('.swiper-slide-active').attr('data-desc'));
+    $('#popup_text').text();
+    
     ajaxRequest(likeUrl(id), 'POST', null, addPopupTitle);
-    $('#popup').show()
-    $('.swiper-slide-active').css('opacity', 0.5)
-  })
+
+    $('#popup').show();
+    $('#swiper-button-next, #swiper-button-prev').hide()
+    $('.swiper-slide-active').css('opacity', 0.5);
+  });
 
   $('#popup_close, .swiper-wrapper, .header').click(function() {
     $('#popup').hide();
-    $('.swiper-slide-active').css('opacity', 1)
-  })
+    $('#swiper-button-next, #swiper-button-prev').show()
+    $('.swiper-slide-active').css('opacity', 1);
+  });
 
   function addPopupTitle(response) {
     $('#popup_tnx').text(response.title);
-    $('#popup_desc').text(response.desc)
+    $('#popup_desc').text(response.desc);
   }
   
   function getSlides(response) {
     allSlides = response.data;
     $('.swiper-button-next').click(function(){
       $(likeCounter).text($('.swiper-slide-active').attr('data-likeCnt'));
-    })
+    });
+
     $('.swiper-button-prev').click(function(){
+      const id = $('.swiper-slide-active').attr('id');
+      const currentTitle = $('.swiper-slide-active');
       $(likeCounter).text($('.swiper-slide-active').attr('data-likeCnt'));
-    })
+
+      $('#header_title').text(0 + id);
+      if (currentTitle[0].id == 0) {
+        $('#header_title').text('The Razorite');
+      }
+    });
     displayTasks(allSlides);
   }
 
@@ -89,6 +99,8 @@ $(document).ready(function () {
       if (swiper.isEnd && swiper.realIndex == 5) {
         showSlides(6, 3);
       }
+      const id = $('.swiper-slide-active').attr('id');
+      $('#header_title').text(0 + id);
   })
 
   function showSlides(missData, countData) {

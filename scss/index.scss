@@ -214,4 +214,43 @@ body {
         flex-direction: row;
         justify-content: space-between;
     }
+
+    .popup_title {
+        width: 114px;
+        height: 47px;
+        margin: 25px 0 0 32px;
+        color: #999999;
+        font-size: 32px;
+        line-height: 37px;
+        letter-spacing: -0.05em;
+        font-family: 'NoirPro-BoldItalic';
+    }
+
+    .popup_data {
+        color: #727272;
+        font-family: NoirPro-Light;
+        font-size: 20px;
+        line-height: 132.7%;
+        letter-spacing: -0.05em;
+        text-align: center;
+    }
+
+    .popup_text {
+        font-family: NoirPro-Light;
+        font-size: 20px;
+        line-height: 132.7%;
+        letter-spacing: -0.05em;
+        color: #FFFFFF;
+        text-align: center;
+        margin: 35px 32px 0;
+    }
+
+    .popup_close {
+        background: url('../pic/popup_close.svg') 50% 50% no-repeat;
+        background-size: contain;
+        width: 26px;
+        height: 25px;
+        border: 0;
+        margin: 32px 32px 0 0;
+    }
 }
