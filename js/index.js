@@ -135,11 +135,6 @@ $(document).ready(function () {
       const currentTitle = $(".swiper-slide-active");
       $(likeCounter).text($(".swiper-slide-active").attr("data-likeCnt"));
       getFromLocal();
-      // if ($("#footer_like-btn").prop("disabled")) {
-      //   $("#footer_like-btn-img").attr("src", "../pic/like-disable.svg");
-      // } else if (!$("#footer_like-btn").prop("disabled")) {
-      //   $("#footer_like-btn-img").attr("src", "../pic/like-normal.svg");
-      // }
       $("#header_title").text(0 + id);
       if (currentTitle[0].id == 0) {
         $("#header_title").text("The Razorite");
