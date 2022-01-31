@@ -140,10 +140,18 @@ html .footer_like .footer_like-btn {
 }
 html .footer_like .footer_like-btn-img {
   background-image: url("../pic/like-normal.svg");
+  cursor: pointer;
 }
 html .footer_like .footer_like-btn-img:hover {
   background-image: url("../pic/like-normal-hover.svg");
   cursor: pointer;
+}
+html .footer_like .footer_like-btn:disabled {
+  cursor: no-drop;
+}
+html .footer_like .footer_like-btn:disabled .footer_like-btn-img:hover {
+  background-image: url("../pic/like-disable.svg");
+  cursor: no-drop;
 }
 html .footer_social {
   display: -webkit-box;

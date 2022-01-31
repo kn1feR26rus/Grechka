@@ -144,11 +144,20 @@ html {
 
     .footer_like-btn-img {
       background-image: url("../pic/like-normal.svg");
+      cursor: pointer;
     }
 
     .footer_like-btn-img:hover {
       background-image: url("../pic/like-normal-hover.svg");
       cursor: pointer;
+    }
+
+    .footer_like-btn:disabled {
+      cursor: no-drop;
+        .footer_like-btn-img:hover {
+          background-image: url("../pic/like-disable.svg");
+          cursor: no-drop;
+        }
     }
   }
 

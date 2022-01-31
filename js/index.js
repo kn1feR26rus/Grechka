@@ -28,6 +28,7 @@ $(document).ready(function () {
       headers: { "Content-type": "application/json" },
       success: function (response) {
         handler(response);
+        getFromLocal();
       },
       error: function () {
         $("#swiper-slide")
@@ -82,7 +83,31 @@ $(document).ready(function () {
     likeCnt = +likeCnt + 1;
     $(".swiper-slide-active").attr("data-likeCnt", likeCnt);
     likeCounter.text(likeCnt);
+    $("#footer_like-btn").prop("disabled", true);
+    $("#footer_like-btn-img").attr("src", "../pic/like-active.svg");
+    setToLocal(id, likeCnt);
   });
+
+  function setToLocal(key, value) {
+    localStorage.setItem(key, value);
+  }
+
+  function getFromLocal() {
+    let id = $(".swiper-slide-active").attr("id");
+    likeCounter.text("");
+    likeCounter.text(localStorage.getItem(id));
+    if (
+      $(".swiper-slide-active").attr("id") == id &&
+      localStorage.getItem(id) !== null
+    ) {
+      let cntLike = localStorage.getItem(id);
+      $(".footer_like-counter").text(cntLike);
+      $("#footer_like-btn").prop("disabled", true);
+    } else {
+      $(likeCounter).text($(".swiper-slide-active").attr("data-likeCnt"));
+      $("#footer_like-btn").prop("disabled", false);
+    }
+  }
 
   $("#popup_close, .swiper-wrapper, .header").click(function () {
     $("#popup").hide();
@@ -99,13 +124,22 @@ $(document).ready(function () {
     allSlides = response.data;
     $(".swiper-button-next").click(function () {
       $(likeCounter).text($(".swiper-slide-active").attr("data-likeCnt"));
+      getFromLocal();
+      if ($("#footer_like-btn").hasClass("disabled")) {
+        $("#footer_like-btn-img").attr("src", "../pic/like-disable.svg");
+      }
     });
 
     $(".swiper-button-prev").click(function () {
       const id = $(".swiper-slide-active").attr("id");
       const currentTitle = $(".swiper-slide-active");
       $(likeCounter).text($(".swiper-slide-active").attr("data-likeCnt"));
-
+      getFromLocal();
+      // if ($("#footer_like-btn").prop("disabled")) {
+      //   $("#footer_like-btn-img").attr("src", "../pic/like-disable.svg");
+      // } else if (!$("#footer_like-btn").prop("disabled")) {
+      //   $("#footer_like-btn-img").attr("src", "../pic/like-normal.svg");
+      // }
       $("#header_title").text(0 + id);
       if (currentTitle[0].id == 0) {
         $("#header_title").text("The Razorite");
@@ -115,6 +149,12 @@ $(document).ready(function () {
   }
 
   $(".swiper-button-next").click(function () {
+    if ($("#footer_like-btn").prop("disabled")) {
+      $("#footer_like-btn-img").attr("src", "../pic/like-disable.svg");
+      $("#footer_like-btn").unbind("mouseenter mouseleave");
+    } else if (!$("#footer_like-btn").prop("disabled")) {
+      $("#footer_like-btn-img").attr("src", "../pic/like-normal.svg");
+    }
     if (swiper.isEnd && swiper.realIndex == 2) {
       showSlides(3, 3);
     }
